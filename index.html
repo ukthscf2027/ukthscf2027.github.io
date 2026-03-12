@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK-Thailand Smart City Forum 2027</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d7377;
+            --primary-dark: #065a5e;
+            --primary-light: #14a3a8;
+            --accent: #00d4aa;
+            --accent-light: #00f5c8;
+            --navy: #0a1628;
+            --navy-light: #132240;
+            --text: #1a2332;
+            --text-light: #5a6a7e;
+            --bg: #f8fafb;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --uk-red: #cf142b;
+            --thai-blue: #241d4f;
+            --gradient-hero: linear-gradient(135deg, #0a1628 0%, #0d7377 50%, #00d4aa 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 22, 40, 0.98);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-brand span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 0.85rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0,212,170,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(13,115,119,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 60% 80%, rgba(0,245,200,0.1) 0%, transparent 40%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50px;
+            padding: 0.5rem 1.25rem;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-flags {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .flag-icon {
+            width: 48px;
+            height: 32px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .flag-uk {
+            background: linear-gradient(to bottom, #012169 33%, #fff 33%, #fff 40%, #c8102e 40%, #c8102e 60%, #fff 60%, #fff 67%, #012169 67%);
+        }
+
+        .flag-th {
+            background: linear-gradient(to bottom, #A51931 0%, #A51931 17%, #F4F5F8 17%, #F4F5F8 33%, #2D2A4A 33%, #2D2A4A 67%, #F4F5F8 67%, #F4F5F8 83%, #A51931 83%, #A51931 100%);
+        }
+
+        .flag-x {
+            color: rgba(255,255,255,0.5);
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.85);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-meta-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,212,170,0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.25);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-dark {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .section-alt {
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header .label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-dark .section-header .label {
+            color: var(--accent);
+        }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .section-dark .section-header p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 1.25rem;
+            color: var(--text-light);
+            font-size: 1.02rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(13,115,119,0.1);
+            border-color: var(--primary-light);
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* ===== TOPICS ===== */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .topic-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .topic-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .topic-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.5rem;
+        }
+
+        .topic-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .topic-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
+        }
+
+        /* ===== KEYNOTES ===== */
+        .keynotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .keynote-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .keynote-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .keynote-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            margin: 0 auto 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .keynote-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .keynote-card .role {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .keynote-card .affiliation {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ===== CALL FOR PAPERS ===== */
+        .cfp-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .cfp-text h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .cfp-text p, .cfp-text li {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .cfp-text ul {
+            padding-left: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .cfp-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        .cfp-dates {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            height: fit-content;
+        }
+
+        .cfp-dates h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .date-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .date-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .date-info strong {
+            display: block;
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+
+        .date-info span {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ===== PROGRAMME ===== */
+        .programme-timeline {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 0;
+            position: relative;
+        }
+
+        .timeline-time {
+            width: 100px;
+            flex-shrink: 0;
+            text-align: right;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
+            padding-top: 1.25rem;
+        }
+
+        .timeline-marker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--bg);
+            box-shadow: 0 0 0 2px var(--primary);
+            margin-top: 1.25rem;
+            z-index: 1;
+        }
+
+        .timeline-line {
+            width: 2px;
+            flex-grow: 1;
+            background: var(--border);
+        }
+
+        .timeline-content {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border-color: var(--primary-light);
+        }
+
+        .timeline-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ===== COMMITTEE ===== */
+        .committee-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .committee-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            color: var(--primary-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .committee-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .committee-member {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg);
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .committee-member:hover {
+            background: var(--white);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .member-avatar {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .member-info strong {
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .member-info span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* ===== VENUE (Online) ===== */
+        .venue-info {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .venue-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
+        }
+
+        .venue-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .venue-info p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .venue-features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .venue-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg);
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        .venue-feature svg {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+        }
+
+        /* ===== REGISTRATION ===== */
+        .reg-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .reg-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .reg-card.featured {
+            border-color: var(--accent);
+            background: rgba(0,212,170,0.08);
+        }
+
+        .reg-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .reg-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .reg-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+
+        .reg-price span {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .reg-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .reg-features li {
+            padding: 0.5rem 0;
+            color: rgba(255,255,255,0.65);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reg-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .btn-reg {
+            display: inline-block;
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-reg-primary {
+            background: var(--accent);
+            color: var(--navy);
+        }
+
+        .btn-reg-primary:hover {
+            background: var(--accent-light);
+        }
+
+        .btn-reg-outline {
+            border: 2px solid rgba(255,255,255,0.2);
+            color: var(--white);
+        }
+
+        .btn-reg-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer p {
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 22, 40, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                border-top: 1px solid rgba(255,255,255,0.08);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cfp-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .timeline-time {
+                width: 70px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#home" class="nav-brand">UKTH <span>SmartCity</span> 2027</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#topics">Topics</a></li>
+            <li><a href="#keynotes">Keynotes</a></li>
+            <li><a href="#cfp">Call for Papers</a></li>
+            <li><a href="#programme">Programme</a></li>
+            <li><a href="#committee">Committee</a></li>
+            <li><a href="#venue">Venue</a></li>
+            <li><a href="#registration">Registration</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            1 April 2027 &middot; Online
+        </div>
+
+        <div class="hero-flags">
+            <div class="flag-icon flag-uk"></div>
+            <span class="flag-x">&times;</span>
+            <div class="flag-icon flag-th"></div>
+        </div>
+
+        <h1>UK-Thailand<br><span class="highlight">Smart City</span> Forum 2027</h1>
+
+        <p class="hero-subtitle">
+            Bridging innovation between the United Kingdom and Thailand — exploring sustainable urban technology, digital infrastructure, and the future of smart cities.
+        </p>
+
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                1 April 2027
+            </div>
+            <div class="hero-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                Online Event
+            </div>
+            <div class="hero-meta-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                Open to All
+            </div>
+        </div>
+
+        <div class="hero-buttons">
+            <a href="#registration" class="btn btn-primary">Register Now</a>
+            <a href="#cfp" class="btn btn-outline">Submit a Paper</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">About the Forum</div>
+            <h2>Shaping the Future of Smart Cities</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    The UK-Thailand Smart City Forum 2027 brings together researchers, policymakers, industry leaders, and innovators from both nations to address the most pressing challenges in urban technology and smart city development.
+                </p>
+                <p>
+                    Building on the strong bilateral partnership between the United Kingdom and Thailand, this forum provides a unique platform for sharing research, best practices, and innovative solutions in smart city technologies — from IoT and AI-driven infrastructure to sustainable urban planning and digital governance.
+                </p>
+                <p>
+                    The forum aims to foster collaboration that translates into real-world impact, connecting academic research with industry application and policy development.
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Nations Collaborating</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Thematic Tracks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Invited Speakers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Day of Innovation</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TOPICS -->
+<section class="section section-dark" id="topics">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Research Topics</div>
+            <h2>Forum Themes &amp; Tracks</h2>
+            <p>We welcome contributions across a broad range of smart city topics</p>
+        </div>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <div class="topic-icon">&#x1F3D7;</div>
+                <h3>Smart Infrastructure</h3>
+                <p>IoT-enabled urban systems, intelligent transportation, smart grids, and connected infrastructure management.</p>
+            </div>
+            <div class="topic-card">
+                <div class="topic-icon">&#x1F916;</div>
+                <h3>AI &amp; Data Analytics</h3>
+                <p>Machine learning for urban planning, predictive analytics, big data governance, and AI ethics in city management.</p>
+            </div>
+            <div class="topic-card">
+                <div class="topic-icon">&#x1F331;</div>
+                <h3>Sustainability &amp; Green Tech</h3>
+                <p>Carbon-neutral cities, renewable energy integration, circular economy, and environmental monitoring systems.</p>
+            </div>
+            <div class="topic-card">
+                <div class="topic-icon">&#x1F3E5;</div>
+                <h3>Digital Health &amp; Wellbeing</h3>
+                <p>Smart healthcare delivery, telemedicine platforms, air quality monitoring, and urban health informatics.</p>
+            </div>
+            <div class="topic-card">
+                <div class="topic-icon">&#x1F512;</div>
+                <h3>Cybersecurity &amp; Privacy</h3>
+                <p>Data protection in smart cities, secure IoT, digital identity management, and privacy-preserving technologies.</p>
+            </div>
+            <div class="topic-card">
+                <div class="topic-icon">&#x1F3DB;</div>
+                <h3>Governance &amp; Policy</h3>
+                <p>Digital government, open data initiatives, regulatory frameworks, and public-private partnerships.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- KEYNOTES -->
+<section class="section section-alt" id="keynotes">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Featured Speakers</div>
+            <h2>Keynote Speakers</h2>
+            <p>Distinguished experts from academia, industry, and government</p>
+        </div>
+        <div class="keynotes-grid">
+            <div class="keynote-card">
+                <div class="keynote-avatar">TBA</div>
+                <h3>To Be Announced</h3>
+                <div class="role">Keynote Speaker</div>
+                <div class="affiliation">United Kingdom</div>
+            </div>
+            <div class="keynote-card">
+                <div class="keynote-avatar">TBA</div>
+                <h3>To Be Announced</h3>
+                <div class="role">Keynote Speaker</div>
+                <div class="affiliation">Thailand</div>
+            </div>
+            <div class="keynote-card">
+                <div class="keynote-avatar">TBA</div>
+                <h3>To Be Announced</h3>
+                <div class="role">Invited Speaker</div>
+                <div class="affiliation">Industry Partner</div>
+            </div>
+        </div>
+        <p style="text-align:center; color: var(--text-light); margin-top: 2rem; font-size: 0.95rem;">
+            Keynote speakers will be announced soon. Stay tuned for updates.
+        </p>
+    </div>
+</section>
+
+<!-- CALL FOR PAPERS -->
+<section class="section section-dark" id="cfp">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Submissions</div>
+            <h2>Call for Papers</h2>
+            <p>We invite original research contributions on all aspects of smart cities</p>
+        </div>
+        <div class="cfp-content">
+            <div class="cfp-text">
+                <h3>Submission Guidelines</h3>
+                <p>
+                    Authors are invited to submit original, unpublished research papers that address challenges and innovations in smart city development. Submissions will be peer-reviewed by an international programme committee.
+                </p>
+                <ul>
+                    <li>Full papers: up to 16 pages (including references)</li>
+                    <li>Short papers: up to 8 pages (including references)</li>
+                    <li>Extended abstracts: up to 4 pages</li>
+                    <li>Formatting: follow the provided template (details coming soon)</li>
+                </ul>
+                <p>
+                    Accepted papers will be included in the forum proceedings. Selected papers may be invited for publication in a special issue of a partnering journal.
+                </p>
+                <a href="#" class="btn btn-primary" style="margin-top:1.5rem;">Submit via EasyChair</a>
+            </div>
+            <div class="cfp-dates">
+                <h3>Important Dates</h3>
+                <div class="date-item">
+                    <div class="date-dot"></div>
+                    <div class="date-info">
+                        <strong>Paper Submission</strong>
+                        <span>TBA</span>
+                    </div>
+                </div>
+                <div class="date-item">
+                    <div class="date-dot"></div>
+                    <div class="date-info">
+                        <strong>Notification of Acceptance</strong>
+                        <span>TBA</span>
+                    </div>
+                </div>
+                <div class="date-item">
+                    <div class="date-dot"></div>
+                    <div class="date-info">
+                        <strong>Camera-Ready Deadline</strong>
+                        <span>TBA</span>
+                    </div>
+                </div>
+                <div class="date-item">
+                    <div class="date-dot"></div>
+                    <div class="date-info">
+                        <strong>Forum Date</strong>
+                        <span>1 April 2027</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROGRAMME -->
+<section class="section" id="programme">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Schedule</div>
+            <h2>Forum Programme</h2>
+            <p>1 April 2027 (All times in GMT+7 / Bangkok Time)</p>
+        </div>
+        <div class="programme-timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">09:00</div>
+                <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+                <div class="timeline-content">
+                    <h4>Opening Ceremony</h4>
+                    <p>Welcome remarks from UK and Thai organisers</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">09:30</div>
+                <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+                <div class="timeline-content">
+                    <h4>Keynote Session I</h4>
+                    <p>Speaker TBA — Smart Infrastructure &amp; IoT</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">10:30</div>
+                <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+                <div class="timeline-content">
+                    <h4>Paper Presentations — Track A</h4>
+                    <p>AI &amp; Data Analytics for Urban Systems</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">12:00</div>
+                <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+                <div class="timeline-content">
+                    <h4>Lunch Break</h4>
+                    <p>Networking &amp; virtual breakout rooms</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">13:00</div>
+                <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+                <div class="timeline-content">
+                    <h4>Keynote Session II</h4>
+                    <p>Speaker TBA — Sustainability &amp; Green Technology</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">14:00</div>
+                <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+                <div class="timeline-content">
+                    <h4>Paper Presentations — Track B</h4>
+                    <p>Cybersecurity, Privacy &amp; Governance</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">15:30</div>
+                <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+                <div class="timeline-content">
+                    <h4>Panel Discussion</h4>
+                    <p>UK-Thailand Future Collaboration in Smart Cities</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">16:30</div>
+                <div class="timeline-marker"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+                <div class="timeline-content">
+                    <h4>Closing Ceremony &amp; Awards</h4>
+                    <p>Best paper awards and closing remarks</p>
+                </div>
+            </div>
+        </div>
+        <p style="text-align:center; color: var(--text-light); margin-top: 2rem; font-size: 0.9rem; font-style: italic;">
+            Detailed programme will be updated as speaker confirmations are finalised.
+        </p>
+    </div>
+</section>
+
+<!-- COMMITTEE -->
+<section class="section section-alt" id="committee">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Organisation</div>
+            <h2>Organising Committee</h2>
+        </div>
+
+        <div class="committee-section">
+            <h3>General Chairs</h3>
+            <div class="committee-list">
+                <div class="committee-member">
+                    <div class="member-avatar">TBA</div>
+                    <div class="member-info">
+                        <strong>To Be Announced</strong>
+                        <span>University, United Kingdom</span>
+                    </div>
+                </div>
+                <div class="committee-member">
+                    <div class="member-avatar">TBA</div>
+                    <div class="member-info">
+                        <strong>To Be Announced</strong>
+                        <span>University, Thailand</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="committee-section">
+            <h3>Programme Committee Chairs</h3>
+            <div class="committee-list">
+                <div class="committee-member">
+                    <div class="member-avatar">TBA</div>
+                    <div class="member-info">
+                        <strong>To Be Announced</strong>
+                        <span>University, United Kingdom</span>
+                    </div>
+                </div>
+                <div class="committee-member">
+                    <div class="member-avatar">TBA</div>
+                    <div class="member-info">
+                        <strong>To Be Announced</strong>
+                        <span>University, Thailand</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="committee-section">
+            <h3>Programme Committee</h3>
+            <div class="committee-list">
+                <div class="committee-member">
+                    <div class="member-avatar">TBA</div>
+                    <div class="member-info">
+                        <strong>Members to be announced</strong>
+                        <span>International reviewers from UK &amp; Thailand</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VENUE -->
+<section class="section" id="venue">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Venue</div>
+            <h2>Join Us Online</h2>
+        </div>
+        <div class="venue-info">
+            <div class="venue-icon">&#x1F310;</div>
+            <h3>Virtual Conference</h3>
+            <p>
+                The UK-Thailand Smart City Forum 2027 will be held entirely online, making it accessible to participants worldwide. Join from anywhere with a stable internet connection.
+            </p>
+            <p>
+                The virtual platform will support live presentations, interactive Q&amp;A sessions, virtual networking rooms, and poster exhibitions. Details on the platform and access links will be shared with registered participants.
+            </p>
+            <div class="venue-features">
+                <div class="venue-feature">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    Live Streaming
+                </div>
+                <div class="venue-feature">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    Live Q&amp;A
+                </div>
+                <div class="venue-feature">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Networking Rooms
+                </div>
+                <div class="venue-feature">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Poster Exhibition
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REGISTRATION -->
+<section class="section section-dark" id="registration">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Join Us</div>
+            <h2>Registration</h2>
+            <p>Secure your spot at the UK-Thailand Smart City Forum 2027</p>
+        </div>
+        <div class="reg-cards">
+            <div class="reg-card">
+                <h3>Student / Early Career</h3>
+                <div class="reg-price">Free</div>
+                <ul class="reg-features">
+                    <li>Access to all sessions</li>
+                    <li>Virtual networking</li>
+                    <li>Digital certificate</li>
+                    <li>Forum proceedings</li>
+                </ul>
+                <a href="#" class="btn-reg btn-reg-outline">Register</a>
+            </div>
+            <div class="reg-card featured">
+                <h3>Academic / Professional</h3>
+                <div class="reg-price">Free</div>
+                <ul class="reg-features">
+                    <li>Access to all sessions</li>
+                    <li>Virtual networking</li>
+                    <li>Digital certificate</li>
+                    <li>Forum proceedings</li>
+                    <li>Paper submission eligibility</li>
+                </ul>
+                <a href="#" class="btn-reg btn-reg-primary">Register Now</a>
+            </div>
+            <div class="reg-card">
+                <h3>Industry Partner</h3>
+                <div class="reg-price">Free</div>
+                <ul class="reg-features">
+                    <li>Access to all sessions</li>
+                    <li>Virtual networking</li>
+                    <li>Sponsorship opportunities</li>
+                    <li>Exhibition booth option</li>
+                </ul>
+                <a href="#" class="btn-reg btn-reg-outline">Contact Us</a>
+            </div>
+        </div>
+        <p style="text-align:center; color: rgba(255,255,255,0.45); margin-top: 2rem; font-size: 0.85rem;">
+            Registration will open soon. Follow us for updates.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">Get in Touch</div>
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">&#x2709;</div>
+                <h3>Email</h3>
+                <p><a href="mailto:smartcityforum2027@gmail.com">smartcityforum2027@gmail.com</a></p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">&#x1F310;</div>
+                <h3>Website</h3>
+                <p><a href="#">ukth-smartcity.github.io</a></p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">&#x1F426;</div>
+                <h3>Follow Us</h3>
+                <p><a href="#">@UKTHSmartCity</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">UK-Thailand Smart City Forum 2027</div>
+        <p>1 April 2027 &middot; Online Event</p>
+        <p>A collaborative initiative between the United Kingdom and Thailand</p>
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#cfp">Call for Papers</a>
+            <a href="#programme">Programme</a>
+            <a href="#registration">Registration</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Smooth scroll for nav links & close mobile menu
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('open');
+        });
+    });
+</script>
+
+</body>
+</html>
