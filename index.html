@@ -579,10 +579,10 @@
         }
 
         .member-avatar {
-            width: 44px;
-            height: 44px;
+            width: 64px;
+            height: 64px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 10px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -590,6 +590,13 @@
             font-weight: 600;
             font-size: 0.9rem;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .member-info strong {
@@ -1099,14 +1106,14 @@
             <h3>Organising Chairs</h3>
             <div class="committee-list">
                 <div class="committee-member">
-                    <div class="member-avatar">WW</div>
+                    <div class="member-avatar"><img src="images/webb.png" alt="Prof. William Webb"></div>
                     <div class="member-info">
                         <strong>Prof. William Webb FREng</strong>
                         <span>United Kingdom</span>
                     </div>
                 </div>
                 <div class="committee-member">
-                    <div class="member-avatar">CT</div>
+                    <div class="member-avatar"><img src="images/toh.png" alt="Prof. Chai K Toh"></div>
                     <div class="member-info">
                         <strong>Prof. Chai K Toh FREng</strong>
                         <span>United Kingdom / Thailand</span>
@@ -1119,14 +1126,14 @@
             <h3>Technical Program Chairs</h3>
             <div class="committee-list">
                 <div class="committee-member">
-                    <div class="member-avatar">KY</div>
+                    <div class="member-avatar"><img src="images/yang.png" alt="Prof. Kun Yang"></div>
                     <div class="member-info">
                         <strong>Prof. Kun Yang FIET FIEEE</strong>
                         <span>United Kingdom</span>
                     </div>
                 </div>
                 <div class="committee-member">
-                    <div class="member-avatar">AN</div>
+                    <div class="member-avatar"><img src="images/aziz.jpg" alt="A/Prof. Aziz Nanthaamornphong"></div>
                     <div class="member-info">
                         <strong>A/Prof. Aziz Nanthaamornphong</strong>
                         <span>Thailand</span>
