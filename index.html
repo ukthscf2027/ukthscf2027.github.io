@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK-Thailand Smart City Forum 2027</title>
+    <title>UK-Thailand Smart Cities Forum 2027</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -835,6 +835,65 @@
             color: var(--accent);
         }
 
+        /* ===== PAST FORUMS ===== */
+        .past-forums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .past-forum-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+
+        .past-forum-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            border-color: var(--primary-light);
+        }
+
+        .past-forum-year {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .past-forum-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .past-forum-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .past-forum-link {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: color 0.2s;
+        }
+
+        .past-forum-card:hover .past-forum-link {
+            color: var(--accent);
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links {
@@ -883,6 +942,7 @@
             <li><a href="#committee">Committee</a></li>
             <li><a href="#venue">Venue</a></li>
             <li><a href="#journal">Journal</a></li>
+            <li><a href="#past-forums">Past Forums</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -893,7 +953,7 @@
 
 <!-- BANNER -->
 <section class="banner-section" id="home">
-    <img src="images/banner.png" alt="UK-Thailand Smart City Forum 2027 — 12 April 2027" class="banner-img">
+    <img src="images/banner.png" alt="UK-Thailand Smart Cities Forum 2027 — 12 April 2027" class="banner-img">
 </section>
 
 <!-- HERO (Quick info below banner) -->
@@ -935,7 +995,7 @@
         <div class="about-grid">
             <div class="about-text">
                 <p>
-                    The UK-Thailand Smart City Forum 2027 brings together leading researchers, policymakers, and industry experts from the United Kingdom and Thailand to exchange insights on the most pressing challenges and innovations in smart city development.
+                    The UK-Thailand Smart Cities Forum 2027 brings together leading researchers, policymakers, and industry experts from the United Kingdom and Thailand to exchange insights on the most pressing challenges and innovations in smart city development.
                 </p>
                 <p>
                     This is an invited-speaker forum — distinguished experts present their latest work through pre-recorded video presentations available online and live online talks, fostering focused, high-quality discussion across both nations.
@@ -1155,7 +1215,7 @@
             <div class="venue-icon">&#x1F310;</div>
             <h3>Virtual Forum</h3>
             <p>
-                The UK-Thailand Smart City Forum 2027 will be held entirely online, making it accessible to participants worldwide. Join from anywhere with a stable internet connection.
+                The UK-Thailand Smart Cities Forum 2027 will be held entirely online, making it accessible to participants worldwide. Join from anywhere with a stable internet connection.
             </p>
             <p>
                 Invited speakers provide pre-recorded video presentations available online. Live online presentations and interactive Q&amp;A sessions will take place on the forum day. Access details will be shared with registered participants.
@@ -1192,7 +1252,7 @@
         </div>
         <div class="journal-section">
             <p>
-                The UK-Thailand Smart City Forum is supported by the Institution of Engineering and Technology (IET) and is associated with the <em>IET Smart Cities</em> journal — an open-access, peer-reviewed journal covering all aspects of smart city research and innovation.
+                The UK-Thailand Smart Cities Forum is supported by the Institution of Engineering and Technology (IET) and is associated with the <em>IET Smart Cities</em> journal — an open-access, peer-reviewed journal covering all aspects of smart city research and innovation.
             </p>
             <a href="https://ietresearch.onlinelibrary.wiley.com/journal/26317680" target="_blank" class="journal-link">
                 <img src="images/IETJournal.png" alt="IET Smart Cities Journal" style="height: 120px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
@@ -1205,8 +1265,39 @@
     </div>
 </section>
 
+<!-- PAST FORUMS -->
+<section class="section section-alt" id="past-forums">
+    <div class="container">
+        <div class="section-header">
+            <div class="label">History</div>
+            <h2>Past Forums</h2>
+            <p>Building on a strong tradition of international smart city collaboration</p>
+        </div>
+        <div class="past-forums-grid">
+            <a href="https://sucaijiang.wixsite.com/ukusascf2024" target="_blank" class="past-forum-card">
+                <div class="past-forum-year">2024</div>
+                <h3>UK-USA Smart Cities Forum</h3>
+                <p>International collaboration between the United Kingdom and the United States</p>
+                <span class="past-forum-link">Visit website &rarr;</span>
+            </a>
+            <a href="https://sucaijiang.wixsite.com/uk-korea-scf2023" target="_blank" class="past-forum-card">
+                <div class="past-forum-year">2023</div>
+                <h3>UK-Korea Smart Cities Forum</h3>
+                <p>International collaboration between the United Kingdom and South Korea</p>
+                <span class="past-forum-link">Visit website &rarr;</span>
+            </a>
+            <a href="https://sucaijiang.wixsite.com/scf2022" target="_blank" class="past-forum-card">
+                <div class="past-forum-year">2022</div>
+                <h3>UK-China Smart Cities Forum</h3>
+                <p>International collaboration between the United Kingdom and China</p>
+                <span class="past-forum-link">Visit website &rarr;</span>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- REGISTRATION -->
-<section class="section section-alt" id="registration">
+<section class="section" id="registration">
     <div class="container">
         <div class="section-header">
             <div class="label">Attendance</div>
@@ -1251,7 +1342,7 @@
 <!-- FOOTER -->
 <footer class="footer">
     <div class="footer-content">
-        <div class="footer-brand">UK-Thailand Smart City Forum 2027</div>
+        <div class="footer-brand">UK-Thailand Smart Cities Forum 2027</div>
         <p>12 April 2027 &middot; Online Event &middot; Invited Speakers</p>
         <p>A collaborative initiative between the United Kingdom and Thailand &middot; Supported by IET</p>
         <div class="footer-links">
